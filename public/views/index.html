@@ -1,0 +1,127 @@
+<html lang="en" ng-app="mainApp">
+<head>
+    <title>Crime Zero Inc.</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css"/>
+    <link rel="stylesheet"
+          href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body ng-controller="mainCtrl" ng-cloak layout="row" layout-align="center" flex>
+<md-content class="md-padding" flex="30" layout="column" layout-align="center">
+    <md-toolbar class="red">
+        <div class="md-toolbar-tools">
+            <h2 class="md-flex">CRIME ZERO</h2>
+        </div>
+    </md-toolbar>
+    <div class="md-padding box">
+        <md-card class="text-box">
+            <md-card-title layout flex>
+                <md-card-title-text layout flex>
+                    <span ng-if="!data.message">{{data.crimeZeroCode}}</span>
+                    <span ng-if="data.message">{{data.message}}</span>
+                </md-card-title-text>
+            </md-card-title>
+        </md-card>
+        <div class="dial-pad" layout="row" layout-align="space-around center" flex>
+            <md-button class="md-raised dial-button" ng-click="data.crimeZeroCode = ''; data.message = ''">
+                <div layout="column" flex>
+                    <span class="numbers">New</span>
+                </div>
+            </md-button>
+            <span flex></span>
+            <md-button class="md-raised dial-button" ng-click="clearText()">
+                <div layout="column" flex>
+                    <span class="numbers">Clear</span>
+                </div>
+            </md-button>
+        </div>
+        <div class="dial-pad" layout="row" layout-align="space-around center" flex>
+            <md-button class="md-raised dial-button" ng-click="appendCode(1)">
+                <div layout="column" flex>
+                    <span class="numbers">1</span>
+                    <span class="sub-text">@.?</span>
+                </div>
+            </md-button>
+            <md-button class="md-raised dial-button" ng-click="appendCode(2)">
+                <div layout="column" flex>
+                    <span class="numbers">2</span>
+                    <span class="sub-text">ABC</span>
+                </div>
+            </md-button>
+            <md-button class="md-raised dial-button" ng-click="appendCode(3)">
+                <div layout="column" flex>
+                    <span class="numbers">3</span>
+                    <span class="sub-text">DEF</span>
+                </div>
+            </md-button>
+        </div>
+        <div class="dial-pad" layout="row" layout-align="space-around center" flex>
+            <md-button class="md-raised dial-button" ng-click="appendCode(4)">
+                <div layout="column" flex>
+                    <span class="numbers">4</span>
+                    <span class="sub-text">GHI</span>
+                </div>
+            </md-button>
+            <md-button class="md-raised dial-button" ng-click="appendCode(5)">
+                <div layout="column" flex>
+                    <span class="numbers">5</span>
+                    <span class="sub-text">JKL</span>
+                </div>
+            </md-button>
+            <md-button class="md-raised dial-button" ng-click="appendCode(6)">
+                <div layout="column" flex>
+                    <span class="numbers">6</span>
+                    <span class="sub-text">MNO</span>
+                </div>
+            </md-button>
+        </div>
+        <div class="dial-pad" layout="row" layout-align="space-around center" flex>
+            <md-button class="md-raised dial-button" ng-click="appendCode(7)">
+                <div layout="column" flex>
+                    <span class="numbers">7</span>
+                    <span class="sub-text">PQRs</span>
+                </div>
+            </md-button>
+            <md-button class="md-raised dial-button" ng-click="appendCode(8)">
+                <div layout="column" flex>
+                    <span class="numbers">8</span>
+                    <span class="sub-text">TUV</span>
+                </div>
+            </md-button>
+            <md-button class="md-raised dial-button" ng-click="appendCode(9)">
+                <div layout="column" flex>
+                    <span class="numbers">9</span>
+                    <span class="sub-text">WXYZ</span>
+                </div>
+            </md-button>
+        </div>
+        <div class="dial-pad" layout="row" layout-align="space-around center" flex>
+            <md-button class="md-raised dial-button" ng-click="sendSos()">
+                <div layout="column" flex>
+                    <span class="numbers">*</span>
+                    <span class="sub-text"><em>send</em></span>
+                </div>
+            </md-button>
+            <md-button class="md-raised dial-button" ng-click="appendCode(0)">
+                <div layout="column" flex>
+                    <span class="numbers">0</span>
+                    <span class="sub-text"><em>zero</em></span>
+                </div>
+            </md-button>
+            <md-button class="md-raised dial-button" ng-click="appendCode(' ')">
+                <div layout="column" flex>
+                    <span class="numbers">#</span>
+                    <span class="sub-text"><em>space</em></span>
+                </div>
+            </md-button>
+        </div>
+    </div>
+</md-content>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "crimezero",
+  "version": "0.0.0",
+  "description": "Crime Zero Inc.",
+  "main": "server.js",
+  "author": "Meghma Hira",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "angular-material": "^1.1.8",
+    "body-parser": "^1.18.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "fs": "0.0.1-security",
+    "http-errors": "~1.6.2",
+    "mongodb": "^3.0.6",
+    "morgan": "~1.9.0",
+    "node-cache": "^4.2.0",
+    "path": "^0.12.7"
+  }
+}
