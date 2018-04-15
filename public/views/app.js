@@ -6,7 +6,16 @@ mainApp.controller("mainCtrl", mainController);
 function mainController($scope, $http) {
     $scope.data = {
         "crimeZeroCode": "",
-        "message": ""
+        "loading": false,
+        "error": false,
+        "success": false,
+        "message": null
+    };
+    $scope.newText = function () {
+        $scope.data.crimeZeroCode = "";
+        $scope.data.success = false;
+        $scope.data.error = false;
+        $scope.data.message = null;
     };
     $scope.clearText = function () {
         $scope.data.crimeZeroCode = $scope.data.crimeZeroCode.slice(0, -1);
@@ -15,7 +24,8 @@ function mainController($scope, $http) {
         $scope.data.crimeZeroCode += character;
     };
     $scope.sendSos = function () {
-        $scope.data.message = "";
+        $scope.data.message = null;
+        $scope.data.loading = true;
         $http({
             "url": "/sos",
             "method": "GET",
@@ -24,13 +34,15 @@ function mainController($scope, $http) {
             },
             "params": {"code": encodeURIComponent($scope.data.crimeZeroCode)}
         }).success(function (data) {
+            $scope.data.loading = false;
+            $scope.data.success = true;
             $scope.data.crimeZeroCode = "";
             $scope.data.message = data.message;
-            console.log(data.message);
         }).error(function (data) {
+            $scope.data.loading = false;
+            $scope.data.error = true;
             $scope.data.crimeZeroCode = "";
             $scope.data.message = data.message;
-            console.log(data.message);
         });
     }
 }

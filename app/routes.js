@@ -1,13 +1,19 @@
 let superheros = require('./superheros');
 module.exports = function (app) {
     app.get('/sos', (req, res) => {
-        superheros.sendDistressSignal(req, res, (error, response)=>{
-            if(error) {
-                return res.status(error.statusCode)
+        superheros.sendDistressSignal(req, res, (error, response) => {
+            if (error && error.statusCode) {
+                res.status(error.statusCode)
                     .send({"message": error.message});
             }
-            res.status(response.statusCode)
-                .send({"message": response.message});
+            else if (response && response.statusCode) {
+                res.status(response.statusCode)
+                    .send({"message": response.message});
+            }
+            else {
+                res.status(406)
+                    .send({"message": "Unhandled Response"});
+            }
         });
     });
 };

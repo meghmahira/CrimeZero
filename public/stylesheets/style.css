@@ -1,6 +1,6 @@
 body {
     padding: 50px;
-    font: 14px "Bookman", Helvetica, Arial, sans-serif;
+    font: 14px monospace, "Bookman", Helvetica, Arial, sans-serif;
 }
 
 .box {
@@ -33,4 +33,12 @@ body {
     letter-spacing: 3px;
     margin-top: -20px;
     padding: 0;
+}
+
+.success-message {
+    color: green;
+}
+
+.error-message {
+    color: red;
 }
